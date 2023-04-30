@@ -24,3 +24,7 @@ func _physics_process(delta):
 	
 func slow_down(delta) -> void:
 	velocity -= velocity * min(delta/0.5, 1.0)
+	
+func is_type(type): return type == "Food"
+
+func get_type(): return "Food"

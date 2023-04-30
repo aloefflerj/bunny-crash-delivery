@@ -1,12 +1,13 @@
-[gd_scene load_steps=16 format=3 uid="uid://xp7b8lgk4djx"]
+[gd_scene load_steps=17 format=3 uid="uid://xp7b8lgk4djx"]
 
+[ext_resource type="Script" path="res://Scripts/Level.gd" id="1_olgxv"]
 [ext_resource type="Texture2D" uid="uid://cmwwpg64ot41c" path="res://Art/outline/bg-outline.png" id="1_um8wv"]
 [ext_resource type="Texture2D" uid="uid://b5ivbr5wrilf5" path="res://Art/outline/phone-outline.png" id="2_ao4sc"]
 [ext_resource type="Texture2D" uid="uid://byvklkopf8b7s" path="res://Art/outline/road-outline.png" id="2_lbevr"]
 [ext_resource type="Texture2D" uid="uid://vdqp53vi2fcs" path="res://Art/outline/grass-tile-outline.png" id="2_sqiia"]
-[ext_resource type="Texture2D" uid="uid://bvdehan0ng5ku" path="res://Art/outline/house-outline.png" id="3_4pphs"]
 [ext_resource type="Script" path="res://Levels/RoadsLoader.gd" id="3_ym63s"]
 [ext_resource type="Texture2D" uid="uid://oy5nqlmo0bon" path="res://Art/outline/delivery-place-outline.png" id="4_au81j"]
+[ext_resource type="PackedScene" uid="uid://cqrohsqyiquxx" path="res://Nodes/FoxHouse.tscn" id="4_r00h0"]
 [ext_resource type="Texture2D" uid="uid://bm6yp8kgupjm0" path="res://Art/outline/delivery-selection-outline.png" id="5_sn6qk"]
 [ext_resource type="Script" path="res://Scripts/Road.gd" id="9_70tga"]
 [ext_resource type="Script" path="res://Scripts/DeliverySelection.gd" id="9_c05p8"]
@@ -32,6 +33,7 @@ sources/1 = SubResource("TileSetAtlasSource_k3cu3")
 [node name="GameLevel" type="Node2D"]
 
 [node name="Level" type="Node2D" parent="."]
+script = ExtResource("1_olgxv")
 
 [node name="Bg-outline" type="Sprite2D" parent="Level"]
 position = Vector2(320, 180)
@@ -48,10 +50,8 @@ position = Vector2(96, 180)
 texture = ExtResource("2_ao4sc")
 metadata/_edit_lock_ = true
 
-[node name="House-outline" type="Sprite2D" parent="Level"]
-position = Vector2(394, 330)
-texture = ExtResource("3_4pphs")
-metadata/_edit_lock_ = true
+[node name="FoxHouse" parent="Level" instance=ExtResource("4_r00h0")]
+position = Vector2(405, 329)
 
 [node name="Delivery-place-outline2" type="Sprite2D" parent="Level"]
 position = Vector2(570, 22)

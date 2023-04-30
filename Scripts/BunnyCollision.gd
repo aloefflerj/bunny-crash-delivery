@@ -63,12 +63,9 @@ func detect_side_of_collision(collider : CharacterBody2D, collision: KinematicCo
 	var collision_angles : Array = [up_velocity, down_velocity, left_velocity, right_velocity]
 	var collision_keys : Array = ['UP', 'DOWN', 'LEFT', 'RIGHT']
 	
-	print(collision_angles)
-	
 	var lowest_angle_value = collision_angles.min()
 	var key = collision_angles.find(lowest_angle_value)
 	var collision_side = collision_keys[key]
-	print(collision_side)
 	
 	return collision_side
 	
@@ -93,3 +90,7 @@ func apply_collision_force(side_of_collision: String, collider : CharacterBody2D
 			
 func slow_down(delta) -> void:
 	velocity -= velocity * min(delta/0.4, 1.0)
+	
+func is_type(type): return type == "Bunny"
+
+func get_type(): return "Bunny"

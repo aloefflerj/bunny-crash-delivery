@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqrohsqyiquxx"]
+
+[ext_resource type="Texture2D" uid="uid://bvdehan0ng5ku" path="res://Art/outline/house-outline.png" id="1_84bnt"]
+[ext_resource type="Script" path="res://Scripts/FoxHouse.gd" id="1_fiw5f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6um28"]
+size = Vector2(74, 62)
+
+[node name="FoxHouse" type="Area2D"]
+collision_layer = 4
+collision_mask = 5
+script = ExtResource("1_fiw5f")
+
+[node name="House-outline" type="Sprite2D" parent="."]
+texture = ExtResource("1_84bnt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_6um28")
