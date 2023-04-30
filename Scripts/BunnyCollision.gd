@@ -47,13 +47,13 @@ func handle_collisions(
 	
 	
 func handle_collision(collider : CharacterBody2D, collision: KinematicCollision2D) -> void:
-	var collision_side :String = detect_side_of_collision(collider, collision)
+	var collision_side :String = detect_side_of_collision(collision)
 	apply_collision_force(collision_side, collider)
 	
 	var spawn_velocity = collider.CurrentVelocity + CurrentVelocity * -SpawnVeloctiyMultiplier
 	spawn_food(collision.get_position(), spawn_velocity)
 
-func detect_side_of_collision(collider : CharacterBody2D, collision: KinematicCollision2D) -> String:
+func detect_side_of_collision(collision: KinematicCollision2D) -> String:
 	var up_velocity : float = collision.get_angle()
 	var down_velocity : float = collision.get_angle(Vector2(0, 1))
 	var left_velocity : float = collision.get_angle(Vector2(-1, 0))

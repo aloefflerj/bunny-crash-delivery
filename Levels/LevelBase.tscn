@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dk3hijfq22pt6"]
+[gd_scene load_steps=18 format=3 uid="uid://dk3hijfq22pt6"]
 
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_68khk"]
 [ext_resource type="Texture2D" uid="uid://cmwwpg64ot41c" path="res://Art/outline/bg-outline.png" id="2_trej8"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://d2sbjrlbdtcka" path="res://Nodes/Road.tscn" id="11_64gy5"]
 [ext_resource type="Script" path="res://Scripts/Road.gd" id="12_j8wv8"]
 [ext_resource type="PackedScene" uid="uid://coajt4afdtc6p" path="res://Nodes/Road2.tscn" id="13_radpf"]
+[ext_resource type="Script" path="res://Scripts/ResetLevelButton.gd" id="14_htpnc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ort8i"]
 texture = ExtResource("9_jkmwq")
@@ -99,6 +100,11 @@ script = ExtResource("12_j8wv8")
 LayerIndex = 1
 
 [node name="Road2" parent="TileMap/Roads" instance=ExtResource("13_radpf")]
+
+[node name="ResetLevelButton" type="Sprite2D" parent="."]
+position = Vector2(402, 200)
+texture = ExtResource("6_hjxdi")
+script = ExtResource("14_htpnc")
 
 [connection signal="send_bunny" from="Delivery-selection-outline" to="TileMap/Roads/Road" method="_on_send_bunny"]
 [connection signal="send_bunny" from="Delivery-selection-outline" to="TileMap/Roads/Road2" method="_on_send_bunny"]

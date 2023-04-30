@@ -30,7 +30,7 @@ func get_tiles_positions_by_layer_index(layer_index: int) -> Array:
 	return tiles_positions
 	
 func add_points_to_path_2d(road: Path2D, tiles_positions: Array) -> void:
-	
+	road.curve.clear_points()
 	for tile_position in tiles_positions:
 		road.curve.add_point(tile_position)
 		

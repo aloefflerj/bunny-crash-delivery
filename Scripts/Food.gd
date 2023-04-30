@@ -21,9 +21,14 @@ func _physics_process(delta):
 		
 	move_and_slide()
 	slow_down(delta)
+	if (stopped()):
+		Global.lose_level()
 	
 func slow_down(delta) -> void:
 	velocity -= velocity * min(delta/0.5, 1.0)
+	
+func stopped() -> bool:
+	return int(velocity.y) == 0 and int(velocity.x) == 0
 	
 func is_type(type): return type == "Food"
 
