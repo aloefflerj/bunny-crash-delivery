@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://dt5wbxqykm6wg"]
+
+[ext_resource type="PackedScene" uid="uid://gyrw1hvicm71" path="res://Characters/Bunny.tscn" id="2_xx6xk"]
+
+[sub_resource type="Curve2D" id="Curve2D_f4nvu"]
+
+[sub_resource type="GDScript" id="GDScript_go3dn"]
+script/source = "extends Path2D
+var BunnyFollowerScript : GDScript = load(\"res://Scripts/BunnyFollower.gd\")
+var RoadIndex: int
+
+func _ready():
+	load_configs()
+	print(RoadIndex)
+	
+func load_configs() -> void:
+	var bunny_follower : PathFollow2D = load_bunny_follower()
+	add_child(bunny_follower)
+	
+func load_bunny_follower() -> PathFollow2D:
+	var bunny_follower = PathFollow2D.new()
+	bunny_follower.set_script(BunnyFollowerScript)
+	bunny_follower.RoadIndex = RoadIndex
+	
+	return bunny_follower
+	
+"
+
+[node name="RoadPath" type="Path2D"]
+curve = SubResource("Curve2D_f4nvu")
+script = SubResource("GDScript_go3dn")
+
+[node name="Bunny" parent="." instance=ExtResource("2_xx6xk")]

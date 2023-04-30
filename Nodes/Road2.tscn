@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://coajt4afdtc6p"]
+
+[ext_resource type="Script" path="res://Scripts/Road.gd" id="1_de4vk"]
+[ext_resource type="Script" path="res://Scripts/RoadFollower.gd" id="2_d33to"]
+[ext_resource type="PackedScene" uid="uid://gyrw1hvicm71" path="res://Characters/Bunny.tscn" id="3_f2wa0"]
+
+[sub_resource type="Curve2D" id="Curve2D_qsb3m"]
+
+[node name="Road" type="Path2D"]
+curve = SubResource("Curve2D_qsb3m")
+script = ExtResource("1_de4vk")
+LayerIndex = 2
+
+[node name="RoadFollower" type="PathFollow2D" parent="." node_paths=PackedStringArray("Bunny")]
+rotates = false
+loop = false
+script = ExtResource("2_d33to")
+Bunny = NodePath("Bunny")
+
+[node name="98945" type="Timer" parent="RoadFollower"]
+wait_time = 0.2
+one_shot = true
+
+[node name="Bunny" parent="RoadFollower" instance=ExtResource("3_f2wa0")]
