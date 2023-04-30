@@ -4,5 +4,6 @@ extends Path2D
 
 func _on_send_bunny(send_bunny_dto: SendBunnyDTO):
 	if (send_bunny_dto.LayerIndex == LayerIndex):
+		$RoadFollower/Bunny/CollisionShape2D.disabled = false
 		$RoadFollower.following = true
 		$RoadFollower.RunSpeed = send_bunny_dto.Speed

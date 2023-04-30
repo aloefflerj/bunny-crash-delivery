@@ -16,7 +16,6 @@ func map_tiles_to_road_indexes(roads: Array) -> void:
 		var tiles_positions : Array = [];
 		tiles_positions = get_tiles_positions_by_layer_index(road.LayerIndex)
 		add_points_to_path_2d(road, tiles_positions)
-		print(road.curve.point_count)
 		
 
 func get_tiles_positions_by_layer_index(layer_index: int) -> Array:
