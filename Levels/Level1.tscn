@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cibdm64fg3kkt"]
+
+[ext_resource type="PackedScene" uid="uid://dk3hijfq22pt6" path="res://Levels/LevelBase.tscn" id="1_35vbl"]
+
+[node name="Level1" instance=ExtResource("1_35vbl")]
+
+[node name="FoxHouse" parent="." index="3"]
+NextLevel = "res://Levels/Level2.tscn"

@@ -22,5 +22,3 @@ func lose_level():
 			FinishedLevel.States.LOST
 		)
 	
-func game_over_screen():
-	

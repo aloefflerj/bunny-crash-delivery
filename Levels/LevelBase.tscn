@@ -1,0 +1,105 @@
+[gd_scene load_steps=17 format=3 uid="uid://dk3hijfq22pt6"]
+
+[ext_resource type="Script" path="res://Scripts/Level.gd" id="1_68khk"]
+[ext_resource type="Texture2D" uid="uid://cmwwpg64ot41c" path="res://Art/outline/bg-outline.png" id="2_trej8"]
+[ext_resource type="Texture2D" uid="uid://oy5nqlmo0bon" path="res://Art/outline/delivery-place-outline.png" id="3_vo76u"]
+[ext_resource type="Texture2D" uid="uid://b5ivbr5wrilf5" path="res://Art/outline/phone-outline.png" id="4_u5af7"]
+[ext_resource type="PackedScene" uid="uid://cqrohsqyiquxx" path="res://Nodes/FoxHouse.tscn" id="5_bua3r"]
+[ext_resource type="Texture2D" uid="uid://bm6yp8kgupjm0" path="res://Art/outline/delivery-selection-outline.png" id="6_hjxdi"]
+[ext_resource type="Script" path="res://Scripts/DeliverySelection.gd" id="7_xyuhw"]
+[ext_resource type="Texture2D" uid="uid://byvklkopf8b7s" path="res://Art/outline/road-outline.png" id="8_5n0ee"]
+[ext_resource type="Texture2D" uid="uid://vdqp53vi2fcs" path="res://Art/outline/grass-tile-outline.png" id="9_jkmwq"]
+[ext_resource type="Script" path="res://Levels/RoadsLoader.gd" id="10_alu04"]
+[ext_resource type="PackedScene" uid="uid://d2sbjrlbdtcka" path="res://Nodes/Road.tscn" id="11_64gy5"]
+[ext_resource type="Script" path="res://Scripts/Road.gd" id="12_j8wv8"]
+[ext_resource type="PackedScene" uid="uid://coajt4afdtc6p" path="res://Nodes/Road2.tscn" id="13_radpf"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ort8i"]
+texture = ExtResource("9_jkmwq")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k3cu3"]
+resource_name = "road"
+texture = ExtResource("8_5n0ee")
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_n3a8r"]
+sources/0 = SubResource("TileSetAtlasSource_ort8i")
+sources/1 = SubResource("TileSetAtlasSource_k3cu3")
+
+[node name="LevelBase" type="Node2D"]
+script = ExtResource("1_68khk")
+
+[node name="Bg-outline" type="Sprite2D" parent="."]
+position = Vector2(320, 180)
+texture = ExtResource("2_trej8")
+metadata/_edit_lock_ = true
+
+[node name="Delivery-place-outline" type="Sprite2D" parent="."]
+position = Vector2(298, 22)
+texture = ExtResource("3_vo76u")
+metadata/_edit_lock_ = true
+
+[node name="Phone-outline" type="Sprite2D" parent="."]
+position = Vector2(96, 180)
+texture = ExtResource("4_u5af7")
+metadata/_edit_lock_ = true
+
+[node name="FoxHouse" parent="." instance=ExtResource("5_bua3r")]
+position = Vector2(405, 329)
+
+[node name="Delivery-place-outline2" type="Sprite2D" parent="."]
+position = Vector2(570, 22)
+texture = ExtResource("3_vo76u")
+metadata/_edit_lock_ = true
+
+[node name="Delivery-selection-outline" type="Sprite2D" parent="."]
+position = Vector2(96, 199)
+texture = ExtResource("6_hjxdi")
+script = ExtResource("7_xyuhw")
+
+[node name="Delivery-selection-outline2" type="Sprite2D" parent="."]
+position = Vector2(96, 271)
+texture = ExtResource("6_hjxdi")
+script = ExtResource("7_xyuhw")
+RoadLayerNumber = 2
+MinutesToDeliver = 12
+
+[node name="FoodSprite" type="Sprite2D" parent="."]
+position = Vector2(0, -2)
+texture = ExtResource("8_5n0ee")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_n3a8r")
+format = 2
+layer_0/name = "grass"
+layer_1/name = "road1"
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = false
+layer_1/y_sort_origin = 0
+layer_1/z_index = 0
+layer_1/tile_data = PackedInt32Array(196643, 1, 0, 262179, 1, 0, 327715, 1, 0, 393251, 1, 0, 458787, 1, 0, 458786, 1, 0, 458785, 1, 0, 458784, 1, 0, 458783, 1, 0, 458782, 1, 0, 458781, 1, 0, 458780, 1, 0, 458779, 1, 0, 458778, 1, 0, 458777, 1, 0, 524313, 1, 0, 589849, 1, 0, 655385, 1, 0, 720921, 1, 0, 786457, 1, 0, 851993, 1, 0, 917529, 1, 0, 983065, 1, 0, 1048601, 1, 0, 1114137, 1, 0, 1179673, 1, 0)
+layer_2/name = "road2"
+layer_2/enabled = true
+layer_2/modulate = Color(1, 1, 1, 1)
+layer_2/y_sort_enabled = false
+layer_2/y_sort_origin = 0
+layer_2/z_index = 0
+layer_2/tile_data = PackedInt32Array(196626, 1, 0, 262162, 1, 0, 327698, 1, 0, 393234, 1, 0, 458770, 1, 0, 524306, 1, 0, 589842, 1, 0, 655378, 1, 0, 720915, 1, 0, 720916, 1, 0, 720917, 1, 0, 720918, 1, 0, 720919, 1, 0, 720920, 1, 0, 720921, 1, 0, 720922, 1, 0, 720923, 1, 0, 786460, 1, 0, 851995, 1, 0, 851994, 1, 0, 851993, 1, 0, 851992, 1, 0, 851991, 1, 0, 851990, 1, 0, 851989, 1, 0, 851988, 1, 0, 917523, 1, 0, 983060, 1, 0, 983061, 1, 0, 983062, 1, 0, 983063, 1, 0, 983064, 1, 0, 983065, 1, 0, 983066, 1, 0, 983067, 1, 0, 983068, 1, 0, 1048605, 1, 0, 1114140, 1, 0, 1114139, 1, 0, 1114138, 1, 0, 1114137, 1, 0, 1114136, 1, 0, 1114135, 1, 0, 1114134, 1, 0, 1114133, 1, 0, 1114132, 1, 0, 1114131, 1, 0, 1179666, 1, 0, 1245203, 1, 0, 1245204, 1, 0, 1245205, 1, 0, 1245206, 1, 0)
+script = ExtResource("10_alu04")
+
+[node name="Roads" type="Node2D" parent="TileMap"]
+
+[node name="Road" parent="TileMap/Roads" instance=ExtResource("11_64gy5")]
+script = ExtResource("12_j8wv8")
+LayerIndex = 1
+
+[node name="Road2" parent="TileMap/Roads" instance=ExtResource("13_radpf")]
+
+[connection signal="send_bunny" from="Delivery-selection-outline" to="TileMap/Roads/Road" method="_on_send_bunny"]
+[connection signal="send_bunny" from="Delivery-selection-outline" to="TileMap/Roads/Road2" method="_on_send_bunny"]
+[connection signal="send_bunny" from="Delivery-selection-outline2" to="TileMap/Roads/Road2" method="_on_send_bunny"]

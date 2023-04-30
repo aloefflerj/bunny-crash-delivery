@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcxfp8r7kehmx"]
+
+[ext_resource type="Texture2D" uid="uid://bcl2nd1uric71" path="res://Art/outline/outline-you-lost.png" id="1_44phm"]
+
+[node name="YouLost" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(320, 180)
+texture = ExtResource("1_44phm")
