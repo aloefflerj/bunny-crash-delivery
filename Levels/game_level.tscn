@@ -32,49 +32,49 @@ sources/1 = SubResource("TileSetAtlasSource_k3cu3")
 
 [node name="GameLevel" type="Node2D"]
 
-[node name="Level" type="Node2D" parent="."]
+[node name="LevelBase" type="Node2D" parent="."]
 script = ExtResource("1_olgxv")
 
-[node name="Bg-outline" type="Sprite2D" parent="Level"]
+[node name="Bg-outline" type="Sprite2D" parent="LevelBase"]
 position = Vector2(320, 180)
 texture = ExtResource("1_um8wv")
 metadata/_edit_lock_ = true
 
-[node name="Delivery-place-outline" type="Sprite2D" parent="Level"]
+[node name="Delivery-place-outline" type="Sprite2D" parent="LevelBase"]
 position = Vector2(298, 22)
 texture = ExtResource("4_au81j")
 metadata/_edit_lock_ = true
 
-[node name="Phone-outline" type="Sprite2D" parent="Level"]
+[node name="Phone-outline" type="Sprite2D" parent="LevelBase"]
 position = Vector2(96, 180)
 texture = ExtResource("2_ao4sc")
 metadata/_edit_lock_ = true
 
-[node name="FoxHouse" parent="Level" instance=ExtResource("4_r00h0")]
+[node name="FoxHouse" parent="LevelBase" instance=ExtResource("4_r00h0")]
 position = Vector2(405, 329)
 
-[node name="Delivery-place-outline2" type="Sprite2D" parent="Level"]
+[node name="Delivery-place-outline2" type="Sprite2D" parent="LevelBase"]
 position = Vector2(570, 22)
 texture = ExtResource("4_au81j")
 metadata/_edit_lock_ = true
 
-[node name="Delivery-selection-outline" type="Sprite2D" parent="Level"]
+[node name="Delivery-selection-outline" type="Sprite2D" parent="LevelBase"]
 position = Vector2(96, 199)
 texture = ExtResource("5_sn6qk")
 script = ExtResource("9_c05p8")
 
-[node name="Delivery-selection-outline2" type="Sprite2D" parent="Level"]
+[node name="Delivery-selection-outline2" type="Sprite2D" parent="LevelBase"]
 position = Vector2(96, 271)
 texture = ExtResource("5_sn6qk")
 script = ExtResource("9_c05p8")
 RoadLayerNumber = 2
 MinutesToDeliver = 12
 
-[node name="FoodSprite" type="Sprite2D" parent="Level"]
+[node name="FoodSprite" type="Sprite2D" parent="LevelBase"]
 position = Vector2(0, -2)
 texture = ExtResource("2_lbevr")
 
-[node name="TileMap" type="TileMap" parent="Level"]
+[node name="TileMap" type="TileMap" parent="LevelBase"]
 tile_set = SubResource("TileSet_n3a8r")
 format = 2
 layer_0/name = "grass"
@@ -94,14 +94,14 @@ layer_2/z_index = 0
 layer_2/tile_data = PackedInt32Array(196626, 1, 0, 262162, 1, 0, 327698, 1, 0, 393234, 1, 0, 458770, 1, 0, 524306, 1, 0, 589842, 1, 0, 655378, 1, 0, 720915, 1, 0, 720916, 1, 0, 720917, 1, 0, 720918, 1, 0, 720919, 1, 0, 720920, 1, 0, 720921, 1, 0, 720922, 1, 0, 720923, 1, 0, 786460, 1, 0, 851995, 1, 0, 851994, 1, 0, 851993, 1, 0, 851992, 1, 0, 851991, 1, 0, 851990, 1, 0, 851989, 1, 0, 851988, 1, 0, 917523, 1, 0, 983060, 1, 0, 983061, 1, 0, 983062, 1, 0, 983063, 1, 0, 983064, 1, 0, 983065, 1, 0, 983066, 1, 0, 983067, 1, 0, 983068, 1, 0, 1048605, 1, 0, 1114140, 1, 0, 1114139, 1, 0, 1114138, 1, 0, 1114137, 1, 0, 1114136, 1, 0, 1114135, 1, 0, 1114134, 1, 0, 1114133, 1, 0, 1114132, 1, 0, 1114131, 1, 0, 1179666, 1, 0, 1245203, 1, 0, 1245204, 1, 0, 1245205, 1, 0, 1245206, 1, 0)
 script = ExtResource("3_ym63s")
 
-[node name="Roads" type="Node2D" parent="Level/TileMap"]
+[node name="Roads" type="Node2D" parent="LevelBase/TileMap"]
 
-[node name="Road" parent="Level/TileMap/Roads" instance=ExtResource("9_ri7e6")]
+[node name="Road" parent="LevelBase/TileMap/Roads" instance=ExtResource("9_ri7e6")]
 script = ExtResource("9_70tga")
 LayerIndex = 1
 
-[node name="Road2" parent="Level/TileMap/Roads" instance=ExtResource("11_gkjc8")]
+[node name="Road2" parent="LevelBase/TileMap/Roads" instance=ExtResource("11_gkjc8")]
 
-[connection signal="send_bunny" from="Level/Delivery-selection-outline" to="Level/TileMap/Roads/Road" method="_on_send_bunny"]
-[connection signal="send_bunny" from="Level/Delivery-selection-outline" to="Level/TileMap/Roads/Road2" method="_on_send_bunny"]
-[connection signal="send_bunny" from="Level/Delivery-selection-outline2" to="Level/TileMap/Roads/Road2" method="_on_send_bunny"]
+[connection signal="send_bunny" from="LevelBase/Delivery-selection-outline" to="LevelBase/TileMap/Roads/Road" method="_on_send_bunny"]
+[connection signal="send_bunny" from="LevelBase/Delivery-selection-outline" to="LevelBase/TileMap/Roads/Road2" method="_on_send_bunny"]
+[connection signal="send_bunny" from="LevelBase/Delivery-selection-outline2" to="LevelBase/TileMap/Roads/Road2" method="_on_send_bunny"]

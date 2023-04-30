@@ -2,9 +2,6 @@ extends Node
 
 var FinishedLevel : FinishedLevelDTO
 
-func _process(delta):
-	print(FinishedLevel.Finished, FinishedLevel.FinishedState)
-
 func start_level():
 	FinishedLevel = FinishedLevelDTO.new(
 		false,
@@ -24,4 +21,6 @@ func lose_level():
 			true,
 			FinishedLevel.States.LOST
 		)
+	
+func game_over_screen():
 	

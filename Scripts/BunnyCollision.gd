@@ -17,7 +17,7 @@ func _physics_process(delta):
 	
 	if collision:
 		var collider : CharacterBody2D = collision.get_collider()
-		handle_collisions(collider, self, collision)
+		handle_collisions(collider, collision)
 		
 		collider.get_parent().following = false
 		get_parent().following = false
@@ -39,7 +39,6 @@ func calc_current_position_based_on_path_2d() -> void:
 
 func handle_collisions(
 	collided_in_this : CharacterBody2D,
-	this : CharacterBody2D,
 	collision: KinematicCollision2D
 	) -> void:
 	if (!FoodInstantiated && !collided_in_this.FoodInstantiated):
