@@ -1,17 +1,24 @@
 extends CharacterBody2D
+
 @export var CrashVelocityMultiplier : float = 0.7
 @export var SpawnVeloctiyMultiplier : float = 7
+@onready var AnimationTreeComponent : AnimationTree = $AnimationTree
+@onready var StateMachine : AnimationNodeStateMachinePlayback = AnimationTreeComponent.get("parameters/playback")
+
 var CurrentVelocity : Vector2
 var CurrentPosition : Vector2 = Vector2(0, 0)
 var Food = preload("res://Nodes/BumpFood.tscn")
 var FoodInstantiated : bool = false
+var Crashed : bool = false
 
 func _ready():
 	$CollisionShape2D.disabled = true;
+	Crashed = false
 
 func _physics_process(delta):
 	slow_down(delta)
 	calc_current_position_based_on_path_2d()
+	handle_animation()
 	
 	var collision = move_and_collide(velocity * delta)
 	
@@ -37,10 +44,20 @@ func calc_current_position_based_on_path_2d() -> void:
 	) * Vector2(-1, -1)
 	CurrentPosition = current_position
 
+func handle_animation():
+	if Crashed:
+		StateMachine.travel("crash")
+		AnimationTreeComponent.set("parameters/crash/blend_position", velocity)
+	else:
+		StateMachine.travel("run")
+		AnimationTreeComponent.set("parameters/run/blend_position", -CurrentVelocity)
+
 func handle_collisions(
 	collided_in_this : CharacterBody2D,
 	collision: KinematicCollision2D
 	) -> void:
+	Crashed = true
+		
 	if (!FoodInstantiated && !collided_in_this.FoodInstantiated):
 		collided_in_this.FoodInstantiated = true
 		handle_collision(collided_in_this, collision)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://4q8awee1sb6l"]
 
 [ext_resource type="Script" path="res://Scripts/Food.gd" id="1_65yvv"]
-[ext_resource type="Texture2D" uid="uid://ckana8mcotyrv" path="res://Art/outline/bunny-fall.png" id="2_dcebn"]
+[ext_resource type="Texture2D" uid="uid://4xjyj0q85myf" path="res://Art/sprites/pizza.png" id="2_wybye"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d7d8g"]
 
@@ -11,7 +11,7 @@ collision_mask = 2
 script = ExtResource("1_65yvv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_dcebn")
+texture = ExtResource("2_wybye")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_d7d8g")

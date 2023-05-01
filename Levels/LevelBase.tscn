@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_68khk"]
 [ext_resource type="Texture2D" uid="uid://cmwwpg64ot41c" path="res://Art/outline/bg-outline.png" id="2_trej8"]
-[ext_resource type="Texture2D" uid="uid://oy5nqlmo0bon" path="res://Art/outline/delivery-place-outline.png" id="3_vo76u"]
 [ext_resource type="Texture2D" uid="uid://b5ivbr5wrilf5" path="res://Art/outline/phone-outline.png" id="4_u5af7"]
 [ext_resource type="PackedScene" uid="uid://cqrohsqyiquxx" path="res://Nodes/FoxHouse.tscn" id="5_bua3r"]
+[ext_resource type="Texture2D" uid="uid://cguq6ykjm41a8" path="res://Art/sprites/pizza-house.png" id="5_wo25h"]
 [ext_resource type="Texture2D" uid="uid://bm6yp8kgupjm0" path="res://Art/outline/delivery-selection-outline.png" id="6_hjxdi"]
 [ext_resource type="Script" path="res://Scripts/DeliverySelection.gd" id="7_xyuhw"]
 [ext_resource type="Texture2D" uid="uid://byvklkopf8b7s" path="res://Art/outline/road-outline.png" id="8_5n0ee"]
@@ -40,21 +40,17 @@ texture = ExtResource("2_trej8")
 metadata/_edit_lock_ = true
 
 [node name="Delivery-place-outline" type="Sprite2D" parent="."]
-position = Vector2(298, 22)
-texture = ExtResource("3_vo76u")
+position = Vector2(297, 41)
+texture = ExtResource("5_wo25h")
+
+[node name="Delivery-place-outline2" type="Sprite2D" parent="."]
+position = Vector2(569, 41)
+texture = ExtResource("5_wo25h")
 metadata/_edit_lock_ = true
 
 [node name="Phone-outline" type="Sprite2D" parent="."]
 position = Vector2(96, 180)
 texture = ExtResource("4_u5af7")
-metadata/_edit_lock_ = true
-
-[node name="FoxHouse" parent="." instance=ExtResource("5_bua3r")]
-position = Vector2(405, 329)
-
-[node name="Delivery-place-outline2" type="Sprite2D" parent="."]
-position = Vector2(570, 22)
-texture = ExtResource("3_vo76u")
 metadata/_edit_lock_ = true
 
 [node name="Delivery-selection-outline" type="Sprite2D" parent="."]
@@ -105,6 +101,9 @@ LayerIndex = 1
 position = Vector2(402, 200)
 texture = ExtResource("6_hjxdi")
 script = ExtResource("14_htpnc")
+
+[node name="FoxHouse" parent="." instance=ExtResource("5_bua3r")]
+position = Vector2(405, 329)
 
 [connection signal="send_bunny" from="Delivery-selection-outline" to="TileMap/Roads/Road" method="_on_send_bunny"]
 [connection signal="send_bunny" from="Delivery-selection-outline" to="TileMap/Roads/Road2" method="_on_send_bunny"]
